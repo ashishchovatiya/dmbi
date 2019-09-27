@@ -1,0 +1,73 @@
+@RELATION basket2
+@ATTRIBUTE TID {T100,T200,T300,T400,T500,T600,T700,T800,T900,T1000,T1100,T1200,T1300,T1400,T1500,T1600,T1700,T1800,T1900}
+@ATTRIBUTE i1{0,1}
+@ATTRIBUTE i2{0,1}
+@ATTRIBUTE i3{0,1}
+@ATTRIBUTE i4{0,1}
+@ATTRIBUTE i5{0,1}
+@DATA
+T100,1,1,0,0,1
+T200,0,1,0,1,0
+T300,0,1,1,0,0
+T400,1,1,0,1,0
+T500,1,0,1,0,0
+T600,0,1,1,0,0
+T700,1,0,1,0,0
+T800,1,1,1,0,1
+T900,1,1,1,0,0
+T1000,1,1,1,1,1
+T1100,0,1,0,1,0
+T1200,1,1,1,1,0
+T1300,0,1,0,1,0
+T1400,1,1,0,1,1
+T1500,0,1,0,1,0
+T1600,1,1,0,1,1
+T1700,0,0,0,1,0
+T1800,1,1,0,1,0
+T1900,0,1,1,1,1
+
+
+Output:
+
+
+=== Run information ===
+
+Scheme:       weka.associations.Apriori -I -N 100 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.4 -S -1.0 -Z -c -1
+Relation:     basket2
+Instances:    19
+Attributes:   6
+              TID
+              i1
+              i2
+              i3
+              i4
+              i5
+=== Associator model (full training set) ===
+
+
+Apriori
+=======
+
+Minimum support: 0.4 (8 instances)
+Minimum metric <confidence>: 0.9
+Number of cycles performed: 12
+
+Generated sets of large itemsets:
+
+Size of set of large itemsets L(1): 4
+
+Large Itemsets L(1):
+i1=1 11
+i2=1 16
+i3=1 9
+i4=1 12
+
+Size of set of large itemsets L(2): 2
+
+Large Itemsets L(2):
+i1=1 i2=1 9
+i2=1 i4=1 11
+
+Best rules found:
+
+  1. i4=1 12 ==> i2=1 11    <conf:(0.92)> lift:(1.09) lev:(0.05) [0] conv:(0.95)
